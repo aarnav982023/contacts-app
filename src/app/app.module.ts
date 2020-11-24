@@ -4,10 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactInfoComponent } from './contacts/contact-info/contact-info.component';
+import { MessageComponent } from './contacts/message/message.component';
+import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactsComponent,
+    ContactInfoComponent,
+    MessageComponent,
+    SentMessagesComponent
   ],
   imports: [
     BrowserModule,

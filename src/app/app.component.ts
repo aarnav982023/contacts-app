@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contacts-app';
+  links: any = [
+    { route: '/', title: 'Contacts'},
+    { route: '/sent-messages', title: 'Sent Messages'},
+  ];
 }
