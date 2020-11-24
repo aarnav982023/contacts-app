@@ -9,6 +9,7 @@ import { ContactInfoComponent } from './contacts/contact-info/contact-info.compo
 import { MessageComponent } from './contacts/message/message.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppMaterialModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,7 +8,11 @@
             <mat-label>New Message</mat-label>
             <textarea matInput formControlName="message"></textarea>
           </mat-form-field>
-          <button mat-raised-button [disabled]="!messageForm.valid">
+          <button
+            mat-raised-button
+            (click)="sendMessage()"
+            [disabled]="!messageForm.valid"
+          >
             Send
           </button>
         </form>

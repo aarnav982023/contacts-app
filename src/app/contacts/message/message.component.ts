@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,7 +17,8 @@ export class MessageComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private contactService: ContactsService,
-    private router: Router
+    private router: Router,
+    private _snackbar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -30,5 +32,26 @@ export class MessageComponent implements OnInit {
 
   backToContacts = () => {
     this.router.navigate(['']);
+  };
+
+  sendMessage = () => {
+    if (!this.messageForm.valid) return;
+    const message = this.messageForm.get('message').value;
+    this.contactService.sendMessage(this.contact.id, message).subscribe(
+      (res) => {
+        console.log(res);
+        this.openSnackBar('Message sent!', null);
+      },
+      (err) => {
+        console.log(err);
+        this.openSnackBar('Some error occured!', null);
+      }
+    );
+  };
+
+  openSnackBar = (message: string, action: string) => {
+    this._snackbar.open(message, action, {
+      duration: 2000,
+    });
   };
 }

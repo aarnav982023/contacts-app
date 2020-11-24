@@ -14,8 +14,8 @@ export class ContactsComponent implements OnInit {
   ngOnInit(): void {
     this.contactsService.contacts.subscribe((newContacts) => {
       this.contacts = Object.values(newContacts);
-      console.log(this.contacts);
     });
+    this.contactsService.getAllContacts();
   }
 
   getContactInfoRouterLink = (contact: Contact) => {
