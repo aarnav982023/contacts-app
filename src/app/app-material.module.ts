@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -86,7 +86,7 @@ import { MatTableModule } from '@angular/material/table';
     MatDialogModule,
     MatPaginatorModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   providers: [MatSnackBar],
 })

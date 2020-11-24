@@ -1,1 +1,12 @@
-<p>contacts works!</p>
+<div class="container-fluid">
+  <mat-nav-list>
+    <a
+      [routerLink]="getContactInfoRouterLink(contact)"
+      mat-list-item
+      *ngFor="let contact of contacts"
+    >
+      {{ contact.firstName }} {{ contact.lastName }}
+      <mat-divider></mat-divider>
+    </a>
+  </mat-nav-list>
+</div>

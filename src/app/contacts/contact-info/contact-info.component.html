@@ -1,1 +1,20 @@
-<p>contact-info works!</p>
+<div class="container-fluid">
+  <div *ngIf="contact">
+    <div class="row">
+      {{ contact.firstName }} {{ contact.lastName }} {{ contact.phoneNumber }}
+    </div>
+    <div class="row">
+      <button mat-raised-button (click)="navigateToSendMessage()">
+        Send Message
+      </button>
+    </div>
+  </div>
+  <div *ngIf="!contact">
+    <div class="row">
+      <div class="col-12 text-center">Contact not Found</div>
+      <div class="col-12 text-center">
+        <button mat-button (click)="backToContacts()">Back to Contacts</button>
+      </div>
+    </div>
+  </div>
+</div>

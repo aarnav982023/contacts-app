@@ -8,6 +8,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { ContactInfoComponent } from './contacts/contact-info/contact-info.component';
 import { MessageComponent } from './contacts/message/message.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,15 +16,16 @@ import { SentMessagesComponent } from './sent-messages/sent-messages.component';
     ContactsComponent,
     ContactInfoComponent,
     MessageComponent,
-    SentMessagesComponent
+    SentMessagesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
