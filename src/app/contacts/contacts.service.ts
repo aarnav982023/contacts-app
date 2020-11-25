@@ -24,10 +24,11 @@ export class ContactsService {
     return this.contacts.getValue()[id];
   };
 
-  sendMessage = (id: number, message: string) => {
+  sendMessage = (id: number, message: string, otp: string) => {
     return this.http.post(`${environment.SERVER_URL}/contacts/send-message`, {
       id,
       message,
+      otp,
     });
   };
 }

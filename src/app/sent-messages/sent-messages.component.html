@@ -1,1 +1,10 @@
-<p>sent-messages works!</p>
+<div class="container-fluid">
+  <mat-list>
+    <mat-list-item *ngFor="let sentMessage of sentMessages">
+      {{ sentMessage.firstName }} {{ sentMessage.lastName }} :
+      {{ sentMessage.createdTime | date: "short" }}
+      {{ sentMessage.otp }}
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>

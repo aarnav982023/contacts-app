@@ -1,14 +1,19 @@
 <div class="container-fluid">
   <div *ngIf="contact">
-    <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 text-center">
         <form [formGroup]="messageForm">
           <mat-form-field appearance="outline" class="w-100">
             <mat-label>New Message</mat-label>
             <textarea matInput formControlName="message"></textarea>
           </mat-form-field>
           <button
+            color="primary"
             mat-raised-button
             (click)="sendMessage()"
             [disabled]="!messageForm.valid"
@@ -20,10 +25,12 @@
     </div>
   </div>
   <div *ngIf="!contact">
-    <div class="row">
-      <div class="col-12 text-center">Contact not Found</div>
+    <div class="row mt-5">
+      <div class="col-12 text-center"><h1>Contact not Found</h1></div>
       <div class="col-12 text-center">
-        <button mat-button (click)="backToContacts()">Back to Contacts</button>
+        <button mat-raised-button color="primary" (click)="backToContacts()">
+          Back to Contacts
+        </button>
       </div>
     </div>
   </div>

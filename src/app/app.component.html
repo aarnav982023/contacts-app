@@ -1,14 +1,17 @@
-<div class="container-fluid h-100 d-flex flex-column">
+<div
+  class="mat-app-background darkMode container-fluid h-100 d-flex flex-column"
+>
   <div class="row">
     <mat-toolbar color="primary">
       <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
+        <mat-icon *ngIf="!drawer.opened">menu</mat-icon>
+        <mat-icon *ngIf="drawer.opened">close</mat-icon>
       </button>
       <span>Contacts</span>
     </mat-toolbar>
   </div>
   <div class="row flex-grow-1">
-    <mat-drawer-container class="w-100" [hasBackdrop]="true">
+    <mat-drawer-container class="main-panel w-100" [hasBackdrop]="false">
       <mat-drawer #drawer mode="over" class="drawer">
         <mat-nav-list>
           <a

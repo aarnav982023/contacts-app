@@ -1,19 +1,32 @@
 <div class="container-fluid">
   <div *ngIf="contact">
-    <div class="row">
-      {{ contact.firstName }} {{ contact.lastName }} {{ contact.phoneNumber }}
-    </div>
-    <div class="row">
-      <button mat-raised-button (click)="navigateToSendMessage()">
-        Send Message
-      </button>
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <h1>{{ contact.firstName }} {{ contact.lastName }}</h1>
+        <div>
+          <div class="col-12">
+            {{ contact.phoneNumber }}
+          </div>
+          <div class="col-12 mt-3">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="navigateToSendMessage()"
+            >
+              Send Message
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div *ngIf="!contact">
-    <div class="row">
-      <div class="col-12 text-center">Contact not Found</div>
+    <div class="row mt-5">
+      <div class="col-12 text-center"><h1>Contact not Found</h1></div>
       <div class="col-12 text-center">
-        <button mat-button (click)="backToContacts()">Back to Contacts</button>
+        <button mat-raised-button (click)="backToContacts()">
+          Back to Contacts
+        </button>
       </div>
     </div>
   </div>

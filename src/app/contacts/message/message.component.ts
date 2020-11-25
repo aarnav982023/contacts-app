@@ -13,6 +13,7 @@ import { ContactsService } from '../contacts.service';
 export class MessageComponent implements OnInit {
   contact: Contact;
   messageForm: FormGroup;
+  randomOTP: string;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -22,8 +23,9 @@ export class MessageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.generateOTP();
     this.messageForm = this.fb.group({
-      message: ['Hi. Your OTP is: 123456', Validators.required],
+      message: [`Hi. Your OTP is: ${this.randomOTP}`, Validators.required],
     });
     this.route.params.subscribe((params) => {
       this.contact = this.contactService.getContactFromId(params.id);
@@ -37,21 +39,27 @@ export class MessageComponent implements OnInit {
   sendMessage = () => {
     if (!this.messageForm.valid) return;
     const message = this.messageForm.get('message').value;
-    this.contactService.sendMessage(this.contact.id, message).subscribe(
-      (res) => {
-        console.log(res);
-        this.openSnackBar('Message sent!', null);
-      },
-      (err) => {
-        console.log(err);
-        this.openSnackBar('Some error occured!', null);
-      }
-    );
+    this.contactService
+      .sendMessage(this.contact.id, message, this.randomOTP)
+      .subscribe(
+        (res) => {
+          console.log(res);
+          this.openSnackBar('Message sent!', null);
+        },
+        (err) => {
+          console.log(err);
+          this.openSnackBar('Some error occured!', null);
+        }
+      );
   };
 
   openSnackBar = (message: string, action: string) => {
     this._snackbar.open(message, action, {
       duration: 2000,
     });
+  };
+
+  generateOTP = () => {
+    this.randomOTP = Math.floor(100000 + Math.random() * 900000).toString();
   };
 }
