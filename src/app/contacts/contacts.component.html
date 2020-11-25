@@ -1,4 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!contactsExist()">
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <h1>No Contacts</h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" *ngIf="contactsExist()">
   <mat-nav-list>
     <a
       [routerLink]="getContactInfoRouterLink(contact)"
@@ -9,4 +16,20 @@
       <mat-divider></mat-divider>
     </a>
   </mat-nav-list>
+</div>
+<div class="add-contact mr-4 mb-4">
+  <button
+    *ngIf="!addContactLoading"
+    mat-fab
+    matTooltip="Add a Contact"
+    matTooltipPosition="left"
+    (click)="openContactDialog()"
+  >
+    <mat-icon> add </mat-icon>
+  </button>
+  <mat-spinner
+    *ngIf="addContactLoading"
+    color="accent"
+    [diameter]="54"
+  ></mat-spinner>
 </div>

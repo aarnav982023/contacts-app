@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!editContactLoading">
   <div *ngIf="contact">
     <div class="row mt-5">
       <div class="col-12 text-center">
@@ -11,9 +11,30 @@
             <button
               mat-raised-button
               color="primary"
+              class="w-50"
               (click)="navigateToSendMessage()"
             >
               Send Message
+            </button>
+          </div>
+          <div class="class col-12 mt-3">
+            <button
+              class="w-50"
+              (click)="openEditDialog()"
+              mat-raised-button
+              color="primary"
+            >
+              Edit Contact
+            </button>
+          </div>
+          <div class="col-12 mt-3">
+            <button
+              mat-raised-button
+              color="warn"
+              class="w-50"
+              (click)="openWarningDialog()"
+            >
+              Delete Contact
             </button>
           </div>
         </div>
@@ -28,6 +49,13 @@
           Back to Contacts
         </button>
       </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" *ngIf="editContactLoading">
+  <div class="row mt-5">
+    <div class="col-12 d-flex justify-content-center">
+      <mat-spinner color="primary"></mat-spinner>
     </div>
   </div>
 </div>

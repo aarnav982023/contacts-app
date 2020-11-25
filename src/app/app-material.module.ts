@@ -27,6 +27,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [],
   imports: [
@@ -57,6 +58,7 @@ import { MatTableModule } from '@angular/material/table';
     MatDialogModule,
     MatPaginatorModule,
     MatTableModule,
+    MatTooltipModule,
   ],
   exports: [
     CommonModule,
@@ -87,6 +89,7 @@ import { MatTableModule } from '@angular/material/table';
     MatPaginatorModule,
     MatTableModule,
     MatToolbarModule,
+    MatTooltipModule,
   ],
   providers: [MatSnackBar],
 })

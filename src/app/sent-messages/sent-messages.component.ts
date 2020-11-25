@@ -29,6 +29,9 @@ export class SentMessagesComponent implements OnInit {
   openWarnDialog = () => {
     const dialogRef = this.dialog.open(DeleteWarnComponent, {
       panelClass: this.themeService.getClass(),
+      data: {
+        message: 'Are you sure you want to clear all?',
+      },
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

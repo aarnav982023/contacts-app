@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h1>{{ data.mode }} Contact</h1>
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="contactForm">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" />
+          <mat-error *ngIf="!contactForm.controls.firstName.valid"
+            >Please enter a value</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" />
+          <mat-error *ngIf="!contactForm.controls.lastName.valid"
+            >Please enter a value</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNumber" />
+          <mat-error *ngIf="!contactForm.controls.phoneNumber.valid"
+            >Entery phone number with country code</mat-error
+          >
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          class="float-right"
+          (click)="performAction()"
+          [disabled]="!contactForm.valid"
+        >
+          {{ data.mode }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

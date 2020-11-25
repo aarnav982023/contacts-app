@@ -31,4 +31,19 @@ export class ContactsService {
       otp,
     });
   };
+
+  addContact = (newContact) => {
+    return this.http.post(`${environment.SERVER_URL}/contacts`, newContact);
+  };
+
+  deleteContact = (id: number) => {
+    return this.http.delete(`${environment.SERVER_URL}/contacts/${id}`);
+  };
+
+  editContact = (contact: Contact) => {
+    return this.http.put(
+      `${environment.SERVER_URL}/contacts/${contact.id}`,
+      contact
+    );
+  };
 }
