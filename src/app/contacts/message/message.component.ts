@@ -14,6 +14,7 @@ export class MessageComponent implements OnInit {
   contact: Contact;
   messageForm: FormGroup;
   randomOTP: string;
+  sendingMessageLoading: boolean = false;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -38,16 +39,17 @@ export class MessageComponent implements OnInit {
 
   sendMessage = () => {
     if (!this.messageForm.valid) return;
+    this.sendingMessageLoading = true;
     const message = this.messageForm.get('message').value;
     this.contactService
       .sendMessage(this.contact.id, message, this.randomOTP)
       .subscribe(
         (res) => {
-          console.log(res);
+          this.sendingMessageLoading = false;
           this.openSnackBar('Message sent!', null);
         },
         (err) => {
-          console.log(err);
+          this.sendingMessageLoading = false;
           this.openSnackBar('Some error occured!', null);
         }
       );

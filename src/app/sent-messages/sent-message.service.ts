@@ -19,4 +19,8 @@ export class SentMessageService {
         this.prevMessages.next(res);
       });
   };
+
+  clearAllPrevMessages = () => {
+    return this.http.delete(`${environment.SERVER_URL}/prev-messages`);
+  };
 }

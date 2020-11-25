@@ -1,0 +1,25 @@
+.sent-message {
+  height: 4rem;
+}
+.date-time {
+  font-size: smaller;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.otp {
+  font-size: larger;
+  font-weight: 500;
+  position: absolute;
+  top: 1;
+  right: 0;
+}
+.name {
+  position: absolute;
+  top: 1;
+  bottom: 1;
+  left: 1;
+  font-size: larger;
+  font-weight: 400;
+}

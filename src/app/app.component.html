@@ -1,5 +1,9 @@
 <div
-  class="mat-app-background darkMode container-fluid h-100 d-flex flex-column"
+  class="mat-app-background container-fluid h-100 d-flex flex-column"
+  [ngClass]="{
+    darkMode: themeService.getDarkMode(),
+    lightMode: !themeService.getDarkMode()
+  }"
 >
   <div class="row">
     <mat-toolbar color="primary">
@@ -23,6 +27,14 @@
             {{ link.title }}
           </a>
         </mat-nav-list>
+        <div class="options-menu">
+          <mat-divider></mat-divider>
+          <form [formGroup]="themeService.darkModeForm" class="mt-2 ml-2">
+            <mat-slide-toggle formControlName="darkModeToggle"
+              >Dark Mode</mat-slide-toggle
+            >
+          </form>
+        </div>
       </mat-drawer>
       <mat-drawer-content>
         <router-outlet></router-outlet>

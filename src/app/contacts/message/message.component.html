@@ -6,13 +6,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 text-center">
+      <div class="col-12 mt-4 text-center">
         <form [formGroup]="messageForm">
           <mat-form-field appearance="outline" class="w-100">
-            <mat-label>New Message</mat-label>
             <textarea matInput formControlName="message"></textarea>
+            <mat-error *ngIf="!messageForm.controls.message.valid"
+              >Please enter a message</mat-error
+            >
           </mat-form-field>
           <button
+            *ngIf="!sendingMessageLoading"
             color="primary"
             mat-raised-button
             (click)="sendMessage()"
@@ -21,6 +24,12 @@
             Send
           </button>
         </form>
+      </div>
+      <div
+        *ngIf="sendingMessageLoading"
+        class="col-12 d-flex justify-content-center"
+      >
+        <mat-spinner [diameter]="40"></mat-spinner>
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@ import { MessageComponent } from './contacts/message/message.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteWarnComponent } from './dialogs/delete-warn/delete-warn.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactInfoComponent,
     MessageComponent,
     SentMessagesComponent,
+    DeleteWarnComponent,
   ],
   imports: [
     BrowserModule,

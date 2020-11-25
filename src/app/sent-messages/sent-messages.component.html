@@ -1,9 +1,33 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!sentMessagesExist()">
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <h1>No Previous Messages</h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" *ngIf="sentMessagesExist()">
+  <div class="row">
+    <div class="col-12 text-center" *ngIf="!clearAllLoading">
+      <button mat-button color="warn" (click)="openWarnDialog()">
+        Clear All
+      </button>
+    </div>
+    <div *ngIf="clearAllLoading" class="col-12 d-flex justify-content-center">
+      <mat-spinner [diameter]="20" color="warn"></mat-spinner>
+    </div>
+  </div>
   <mat-list>
-    <mat-list-item *ngFor="let sentMessage of sentMessages">
-      {{ sentMessage.firstName }} {{ sentMessage.lastName }} :
-      {{ sentMessage.createdTime | date: "short" }}
-      {{ sentMessage.otp }}
+    <mat-list-item
+      class="sent-message"
+      *ngFor="let sentMessage of sentMessages"
+    >
+      <span class="name"
+        >{{ sentMessage.firstName }} {{ sentMessage.lastName }}</span
+      >
+      <span class="date-time">{{
+        sentMessage.createdTime | date: "short"
+      }}</span>
+      <span class="otp">{{ sentMessage.otp }}</span>
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
